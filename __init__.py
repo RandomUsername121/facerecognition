@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 from matplotlib import pyplot as plt
 
-path0 = "C:\\Users\\Proprietaire\\facerecognition\\Data\\Tetris_blocks.png"
+path0 = "Data\\Tetris_blocks.png"
 
 def load_and_display_image(path):
     img = cv2.imread(path, 1)
@@ -36,3 +36,24 @@ def process_image2(path):
     plt.show()
 
 process_image2(path0)
+
+from matplotlib import pyplot as plt
+
+def process1_image(filename):
+    img = cv2.imread(filename,1)
+
+    laplacian = cv2.Laplacian(img,cv2.CV_64F)
+    sobelx = cv2.Sobel(img,cv2.CV_64F,1,0,ksize=5)
+    sobely = cv2.Sobel(img,cv2.CV_64F,0,1,ksize=5)
+    plt.subplot(2,2,1),plt.imshow(img,cmap = 'gray')
+    plt.title('Original'), plt.xticks([]), plt.yticks([])
+    plt.subplot(2,2,2),plt.imshow(laplacian,cmap = 'gray')
+    plt.title('Laplacian'), plt.xticks([]), plt.yticks([])
+    plt.subplot(2,2,3),plt.imshow(sobelx,cmap = 'gray')
+    plt.title('Sobel X'), plt.xticks([]), plt.yticks([])
+    plt.subplot(2,2,4),plt.imshow(sobely,cmap = 'gray')
+    plt.title('Sobel Y'), plt.xticks([]), plt.yticks([])
+
+    plt.show()
+
+process1_image(path0)
