@@ -37,7 +37,6 @@ def process_image2(path):
 
 process_image2(path0)
 
-from matplotlib import pyplot as plt
 
 def process1_image(filename):
     img = cv2.imread(filename,1)
