@@ -8,11 +8,11 @@ import os
 
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
-ap.add_argument("-i", "--C:/Users/Proprietaire/facerecognition/data", required=True,
+ap.add_argument("-i", "--dataset", required=True,
 	help="path to input directory of faces + images")
-ap.add_argument("-e", "--C:/Users/Proprietaire/facerecognition/encodings", required=True,
+ap.add_argument("-e", "--encodings", required=True,
 	help="path to serialized db of facial encodings")
-ap.add_argument("-d", "--cnn", type=str, default="cnn",
+ap.add_argument("-d", "--detection-method", type=str, default="cnn",
 	help="face detection model to use: either `hog` or `cnn`")
 args = vars(ap.parse_args())
 
@@ -35,6 +35,7 @@ for (i, imagePath) in enumerate(imagePaths):
 	# to dlib ordering (RGB)
 	image = cv2.imread(imagePath)
 	rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+
 
 # loop over the image paths
 for (i, imagePath) in enumerate(imagePaths):
