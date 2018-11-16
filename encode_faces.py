@@ -18,8 +18,7 @@ args = vars(ap.parse_args())
 
 # grab the paths to the input images in our dataset
 print("[INFO] quantifying faces...")
-imagePaths = list(paths.list_images(args["dataset"]))
-
+imagePaths = list(paths.list_images('C:/Users/Proprietaire/facerecognition/dataset'))
 # initialize the list of known encodings and known names
 knownEncodings = []
 knownNames = []
@@ -71,4 +70,5 @@ f = open(args["encodings"], "wb")
 f.write(pickle.dumps(data))
 f.close()
 
-
+#commande a rentrer dans le prompt
+#python encode_faces.py --dataset dataset --encodings encodings.pickle

@@ -33,8 +33,6 @@ encodings = face_recognition.face_encodings(rgb, boxes)
 # initialize the list of names for each face detected
 names = []
 
-Face recognition with OpenCV, Python, and deep learningPython
-
 # loop over the facial embeddings
 for encoding in encodings:
 	# attempt to match each face in the input image to our known
@@ -75,3 +73,6 @@ for ((top, right, bottom, left), name) in zip(boxes, names):
 # show the output image
 cv2.imshow("Image", image)
 cv2.waitKey(0)
+
+#commande pour identifier une image
+#python recognize_faces_image.py --encodings encodings.pickle --image examples/example_01.jpg
